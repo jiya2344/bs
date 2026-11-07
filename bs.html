@@ -1,0 +1,507 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Birthday Surprise 💌</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  background: linear-gradient(135deg, #fff0f5, #f4e3f5);
+  color: #65354b;
+  text-align: center;
+  min-height: 100vh;
+}
+
+main {
+  max-width: 680px;
+  width: 92%;
+  margin: auto;
+  padding: 30px 0;
+}
+
+h1 { color: #b52f68; }
+h2 { color: #a43c68; }
+
+p {
+  line-height: 1.8;
+  font-size: 17px;
+}
+
+.card {
+  background: white;
+  border-radius: 22px;
+  padding: 25px 20px;
+  margin: 22px 0;
+  box-shadow: 0 7px 25px #b52f681c;
+  border: 1px solid #f3c9da;
+}
+
+button {
+  background: #b52f68;
+  color: white;
+  border: none;
+  border-radius: 28px;
+  padding: 13px 20px;
+  margin: 7px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+button:hover { background: #87234c; }
+
+.secondary {
+  background: #edb4cc;
+  color: #632342;
+}
+
+.hidden { display: none !important; }
+
+.emoji {
+  font-size: 52px;
+  margin: 10px;
+}
+
+.small { font-size: 14px; color: #97647b; }
+
+input[type="radio"] { accent-color: #b52f68; }
+
+label {
+  display: block;
+  text-align: left;
+  padding: 10px;
+  line-height: 1.5;
+}
+
+.candle {
+  font-size: 85px;
+  cursor: pointer;
+  user-select: none;
+}
+
+footer {
+  padding: 20px 0;
+  font-size: 13px;
+}
+</style>
+</head>
+
+<body>
+<main>
+
+<!-- STAGE 1: WELCOME -->
+<section id="welcome">
+  <div class="emoji">💌</div>
+  <h1>A Little Surprise for You</h1>
+  <p>
+    For someone who came into my life as a senior,
+    but slowly became someone truly special.
+  </p>
+  <p>Today, this little surprise is just for you. 🌷</p>
+  <button id="startBtn">Open Your Surprise ✨</button>
+</section>
+
+<!-- STAGE 2: EMOTIONAL BIRTHDAY MESSAGE -->
+<section id="birthday" class="hidden">
+  <div class="emoji">🎂💗</div>
+  <h1>Happy Birthday to Someone Truly Irreplaceable</h1>
+
+  <div class="card">
+    <p>
+      Some people come into our lives with a title, but
+      slowly become a feeling we cannot put into words.
+      You came into my life as a senior, but somewhere
+      along the way, you became someone I will always
+      be grateful to have met.
+    </p>
+
+    <p>
+      Maybe I will never be able to explain exactly what
+      makes you so special to me, but I know that not
+      every person earns a place in our heart so naturally.
+      Some bonds are simply felt.
+    </p>
+
+    <p>
+      On your birthday, I don't just wish you success or
+      happiness. I wish you a life where your heart feels
+      peaceful, your efforts are appreciated, your silent
+      struggles turn into strength, and your little dreams
+      find their way home.
+    </p>
+
+    <p>
+      If there is one thing I hope you always remember,
+      it is this: somewhere in this world, there is someone
+      who is genuinely grateful that life gave them the
+      chance to know you.
+    </p>
+
+    <p>
+      May this new chapter bring you everything your heart
+      quietly wishes for. Keep being the person you are,
+      because some people leave beautiful marks on hearts
+      without even realizing it.
+    </p>
+
+    <h2>
+      Happy Birthday, my favourite kind of unexpected
+      blessing! 🕯️🤍✨
+    </h2>
+  </div>
+
+  <button id="toReasons">Discover 10 Reasons 💌</button>
+</section>
+
+<!-- STAGE 3: REASON CARDS -->
+<section id="reasonsSection" class="hidden">
+  <h1>10 Reasons You're Special 🌟</h1>
+  <p id="progress" class="small"></p>
+
+  <div class="card" aria-live="polite">
+    <div class="emoji" id="reasonEmoji">🏡</div>
+    <p id="reasonNumber" class="small"></p>
+    <h2 id="reasonTitle"></h2>
+    <p id="reasonText"></p>
+  </div>
+
+  <button id="prevReason" class="secondary">← Previous</button>
+  <button id="nextReason">Next Reason →</button>
+</section>
+
+<!-- STAGE 4: LITTLE MORE ABOUT YOU -->
+<section id="aboutSection" class="hidden">
+  <div class="emoji">🌷</div>
+  <h1>A Little More About You</h1>
+
+  <div class="card">
+    <p>
+      You may not realize how much warmth you bring into
+      ordinary moments. It's in the conversations, the
+      laughter, the advice, and the comfort of being able
+      to talk without pretending to be someone else.
+    </p>
+
+    <p>
+      I hope life gives you the same kindness you give
+      others. And wherever our paths lead, I will always
+      be grateful for this chapter and the memories
+      we made along the way. 💗
+    </p>
+  </div>
+
+  <button id="toQuiz">Let's Play a Little Quiz 🎀</button>
+</section>
+
+<!-- STAGE 5: QUIZ -->
+<section id="quizSection" class="hidden">
+  <h1>A Little Birthday Quiz 🎀</h1>
+  <p>Let's see how well you know yourself!</p>
+
+  <div class="card">
+    <h2>1. What is the best birthday gift?</h2>
+    <label><input type="radio" name="q1" value="a"> Expensive things</label>
+    <label><input type="radio" name="q1" value="b"> Love, memories and thoughtful gestures</label>
+    <label><input type="radio" name="q1" value="c"> A day of sleeping</label>
+  </div>
+
+  <div class="card">
+    <h2>2. What makes ordinary days memorable?</h2>
+    <label><input type="radio" name="q2" value="a"> Meaningful little moments</label>
+    <label><input type="radio" name="q2" value="b"> Looking at the clock</label>
+    <label><input type="radio" name="q2" value="c"> Doing nothing at all</label>
+  </div>
+
+  <div class="card">
+    <h2>3. What should your new year bring?</h2>
+    <label><input type="radio" name="q3" value="a"> More worries</label>
+    <label><input type="radio" name="q3" value="b"> Only work</label>
+    <label><input type="radio" name="q3" value="c"> Peace, happiness and beautiful surprises</label>
+  </div>
+
+  <button id="submitQuiz">Reveal Results ✨</button>
+  <p id="quizResult" aria-live="polite"></p>
+  <button id="toCandle" class="hidden">Make a Birthday Wish 🎂</button>
+</section>
+
+<!-- STAGE 6: CANDLE -->
+<section id="candleSection" class="hidden">
+  <div class="emoji">🎂</div>
+  <h1>One Little Birthday Wish</h1>
+  <p>Close your eyes, make a wish, and tap the candle! 🕯️</p>
+
+  <div id="candle" class="candle" role="button"
+       tabindex="0" aria-label="Blow out the candle">🕯️</div>
+
+  <p id="candleMessage" aria-live="polite">
+    Your wish is waiting. 💗
+  </p>
+
+  <button id="finishBtn" class="hidden">
+    One Last Message 💌
+  </button>
+</section>
+
+<!-- STAGE 7: FINAL WISH -->
+<section id="finalSection" class="hidden">
+  <div class="emoji">💖</div>
+  <h1>A Wish From My Heart</h1>
+
+  <div class="card">
+    <p>
+      Happy Birthday once again to someone who has become
+      a beautiful part of my memories.
+    </p>
+
+    <p>
+      Thank you for the comfort, the laughter, the little
+      conversations, and the moments that became special
+      without even trying.
+    </p>
+
+    <p>
+      I hope you never forget your worth. May you find
+      people who understand you, moments that heal you,
+      opportunities that help you grow, and happiness
+      that stays.
+    </p>
+
+    <p>
+      No matter how busy life gets, this chapter will
+      always be a lovely part of my story.
+    </p>
+
+    <h2>Keep smiling. Keep shining. Stay you. 🤍</h2>
+    <p>With heartfelt wishes, always. 🌷</p>
+  </div>
+
+  <button id="restartBtn">Experience the Surprise Again ↻</button>
+</section>
+
+<footer>Made with love, memories & a little bit of emotion 💌</footer>
+
+</main>
+
+<script>
+"use strict";
+
+// All website stages
+const stageIds = [
+  "welcome",
+  "birthday",
+  "reasonsSection",
+  "aboutSection",
+  "quizSection",
+  "candleSection",
+  "finalSection"
+];
+
+function showStage(id) {
+  stageIds.forEach(stageId => {
+    document.getElementById(stageId).classList.add("hidden");
+  });
+
+  document.getElementById(id).classList.remove("hidden");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+// Birthday reason cards
+const reasons = [
+  {
+    emoji: "🏡",
+    title: "You Made a Room Feel Like Home",
+    text: "A room is just four walls until someone makes it feel warm, familiar, and full of life. You helped make ordinary days feel special."
+  },
+  {
+    emoji: "🌷",
+    title: "The Little Things Matter",
+    text: "The small conversations, random laughs, and everyday moments became memories I never knew I would treasure."
+  },
+  {
+    emoji: "😂",
+    title: "Our Random Laughs",
+    text: "Some of the best memories aren't planned. They're the silly conversations and unexpected laughter that make no sense to anyone else."
+  },
+  {
+    emoji: "💖",
+    title: "More Than a Roommate",
+    text: "Sometimes life gives us people we never expected to become important. I'm grateful that our paths crossed and we got to share this little part of life."
+  },
+  {
+    emoji: "🤭",
+    title: "Our Chugli Sessions",
+    text: "Room ma besine duniya ni badhi chugli karvi! Honestly, our gossip sessions deserve their own podcast. Nobody would believe how many topics we can cover."
+  },
+  {
+    emoji: "🗣️",
+    title: "One Topic, a Thousand Opinions",
+    text: "We start with one person's story and somehow end up discussing the entire world. How do our conversations never run out?"
+  },
+  {
+    emoji: "🌙",
+    title: "Our Midnight Discussions",
+    text: "The whole world can be sleeping, but one little topic is enough to restart our entire conversation. Some nights, sleep can wait!"
+  },
+  {
+    emoji: "🫂",
+    title: "My Personal Therapist",
+    text: "Thank you for listening to my endless stories, handling my overthinking, hearing my complaints, and letting me talk without feeling judged. Sometimes I don't need solutions. I just need someone who listens, and I'm grateful for that comfort."
+  },
+  {
+    emoji: "🩷",
+    title: "Comfort Without Formalities",
+    text: "One of the nicest things about sharing a room is being able to be yourself without needing to explain every little thing."
+  },
+  {
+    emoji: "✨",
+    title: "A Chapter Worth Keeping",
+    text: "No matter where life takes us, this chapter of shared rooms, little talks, and everyday memories will always be a part of my story. Your presence can brighten a moment."
+  }
+];
+
+let reasonIndex = 0;
+
+function renderReason() {
+  const reason = reasons[reasonIndex];
+
+  document.getElementById("reasonEmoji").textContent = reason.emoji;
+  document.getElementById("reasonNumber").textContent =
+    "REASON #" + String(reasonIndex + 1).padStart(2, "0");
+  document.getElementById("reasonTitle").textContent = reason.title;
+  document.getElementById("reasonText").textContent = reason.text;
+  document.getElementById("progress").textContent =
+    "Reason " + (reasonIndex + 1) + " of " + reasons.length;
+
+  document.getElementById("prevReason").style.visibility =
+    reasonIndex === 0 ? "hidden" : "visible";
+
+  document.getElementById("nextReason").textContent =
+    reasonIndex === reasons.length - 1
+      ? "Continue to the Next Surprise 💗"
+      : "Next Reason →";
+}
+
+// Connect every button to its action
+document.getElementById("startBtn").addEventListener("click", () => {
+  showStage("birthday");
+});
+
+document.getElementById("toReasons").addEventListener("click", () => {
+  reasonIndex = 0;
+  renderReason();
+  showStage("reasonsSection");
+});
+
+document.getElementById("prevReason").addEventListener("click", () => {
+  if (reasonIndex > 0) {
+    reasonIndex--;
+    renderReason();
+  }
+});
+
+document.getElementById("nextReason").addEventListener("click", () => {
+  if (reasonIndex < reasons.length - 1) {
+    reasonIndex++;
+    renderReason();
+  } else {
+    showStage("aboutSection");
+  }
+});
+
+document.getElementById("toQuiz").addEventListener("click", () => {
+  showStage("quizSection");
+});
+
+document.getElementById("submitQuiz").addEventListener("click", () => {
+  const answers = ["b", "a", "c"];
+  let score = 0;
+  let unanswered = false;
+
+  answers.forEach((answer, i) => {
+    const selected = document.querySelector(
+      'input[name="q' + (i + 1) + '"]:checked'
+    );
+
+    if (!selected) {
+      unanswered = true;
+    } else if (selected.value === answer) {
+      score++;
+    }
+  });
+
+  const result = document.getElementById("quizResult");
+
+  if (unanswered) {
+    result.textContent = "Answer all three questions first! 💗";
+    document.getElementById("toCandle").classList.add("hidden");
+    return;
+  }
+
+  result.textContent =
+    "You got " + score + " out of 3! Every answer is a little reminder " +
+    "that the best gifts are the ones that come from the heart. 💖";
+
+  document.getElementById("toCandle").classList.remove("hidden");
+});
+
+document.getElementById("toCandle").addEventListener("click", () => {
+  showStage("candleSection");
+});
+
+function blowCandle() {
+  const candle = document.getElementById("candle");
+
+  if (candle.dataset.blown === "yes") return;
+
+  candle.dataset.blown = "yes";
+  candle.textContent = "🌫️";
+  candle.style.cursor = "default";
+
+  document.getElementById("candleMessage").textContent =
+    "May your birthday wish find its way to you. Happy Birthday! 🎉💗";
+
+  document.getElementById("finishBtn").classList.remove("hidden");
+}
+
+document.getElementById("candle").addEventListener("click", blowCandle);
+
+document.getElementById("candle").addEventListener("keydown", event => {
+  if (event.key === "Enter" || event.key === " ") {
+    event.preventDefault();
+    blowCandle();
+  }
+});
+
+document.getElementById("finishBtn").addEventListener("click", () => {
+  showStage("finalSection");
+});
+
+document.getElementById("restartBtn").addEventListener("click", () => {
+  reasonIndex = 0;
+  renderReason();
+
+  document.getElementById("candle").dataset.blown = "";
+  document.getElementById("candle").textContent = "🕯️";
+  document.getElementById("candle").style.cursor = "pointer";
+
+  document.getElementById("candleMessage").textContent =
+    "Your wish is waiting. 💗";
+
+  document.getElementById("finishBtn").classList.add("hidden");
+  document.getElementById("toCandle").classList.add("hidden");
+  document.getElementById("quizResult").textContent = "";
+
+  document.querySelectorAll('input[type="radio"]').forEach(input => {
+    input.checked = false;
+  });
+
+  showStage("welcome");
+});
+</script>
+</body>
+</html>
